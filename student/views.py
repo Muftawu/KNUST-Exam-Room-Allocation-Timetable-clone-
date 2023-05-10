@@ -40,11 +40,13 @@ def view_student_pdf(request):
                 timetable = Timetable.objects.filter(programme=courses[i])
                 exam_type = Timetable.objects.filter(programme=courses[i])[0].exam.exam_type
                 academic_year = Timetable.objects.filter(programme=courses[i])[0].exam.academic_year
+                semester = Timetable.objects.filter(programme=courses[i])[0].exam.semester
     except:
         exam_type = 'default midsem'
         academic_year = '2023'
 
-    context = {'timetable': timetable, 'fname': fname, 'lname': lname, 'index_number': index_number}
+    context = {'timetable': timetable, 'fname': fname, 'lname': lname, 'index_number': index_number,
+               'exam_type': exam_type, 'academic_year': academic_year, 'semester': semester}
     # Create a Django response object, and specify content_type as pdf
     response = HttpResponse(content_type='application/pdf')
     response['Content-Disposition'] = 'filename="report.pdf"'
