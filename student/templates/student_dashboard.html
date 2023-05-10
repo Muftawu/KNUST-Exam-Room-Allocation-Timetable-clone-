@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+      Student Dashboard 
+{% endblock title %}
+
+
+{% block content %}
+
+<h3>{{ exam_type }} Examination {{ academic_year }}</h3>
+<h3>Academic Year</h3> <br> <hr style="width: 300px;">
+<h5>{{ request.user.programme }}</h5> <hr style="width: 300px;">
+<p>Please print this schedule and return it to the Examination center for each session</p> <br>
+<hr style="width: 800px;">
+
+{% for table in timetable %}
+<div class="row g-0 text-center" style="width: 800px;">
+    <div class="col-sm-6 col-md-8">Name: {{request.user.last_name}}, {{request.user.first_name}}</div><br>
+    <div class="col-sm-6 col-md-8">Index Number: {{request.user.index_number}}</div><br>
+    <div class="col-sm-6 col-md-8">Course: {{ table.paper }}</div><br>
+    <div class="col-sm-6 col-md-8">Time: {{ table.paper.time | capfirst }} </div><br>
+    <div class="col-sm-6 col-md-8">Date: {{ table.paper.date | capfirst }}</div><br>
+    <div class="col-sm-6 col-md-8">Room: {{ table.paper.room | capfirst }}</div><br>
+    <div class="col-sm-6 col-md-8">College: {{ table.paper.college | capfirst }}</div><br>
+    <div class="col-sm-6 col-md-8">Building: {{ table.paper.building | capfirst }}</div><br>
+    <div class="col-sm-6 col-md-8">Floor: {{ table.paper.floor | capfirst }}</div><br>
+    <div class="col-6 col-md-4" style="margin-top: -150px;">
+        <!-- <img class="qrcode" src="{% static '/images/code.png' %}" alt="" height="160px"; width="160px"> -->
+        <img class="qrcode" src="{{table.imageURL}}" alt="" height="160px"; width="160px">
+    </div> <br> <br> 
+    <hr style="width: 800px;"> 
+    {% endfor %}
+  </div>
+      
+  <a href="{% url 'student:view_student_pdf' %}" style="color: #fff; text-decoration: none;">
+    <button class="btn btn-success">View/Download</button>
+  </a>
+{% endblock content %}
+
+      
+      

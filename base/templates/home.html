@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+      Home
+{% endblock title %}
+
+
+{% block content %}
+
+<h4>Select category to continue</h4>
+
+<hr style="width: 500px;">
+
+<div class="container">
+      <div class="student"><h4><a href="{% url 'base:login' %}">Student Login</a></h4></div>
+      <div class="invigilator"><h4><a href="{% url 'base:login' %}">Invigilator Login</a></h4></div>
+</div>
+
+<hr style="width: 500px;">
+
+<h4><a href="{% url 'base:signup' %}">Signup</a></h4>
+      
+{% endblock content %}
+      
+      

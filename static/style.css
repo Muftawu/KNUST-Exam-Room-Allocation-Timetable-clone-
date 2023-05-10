@@ -1,0 +1,13 @@
+.container {
+    justify-content: center;
+    text-align: center;
+    display: inline-flex;
+}
+
+.student, .invigilator{
+    padding: 30px;
+}
+
+a {
+    text-decoration: none;
+}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Login
+{% endblock title %}
+      
+
+
+{% block content %}
+<h3>Login</h3> <br> 
+
+
+
+{% if messages %}
+      
+      {% for message in messages %}
+            <p>{{message}}</p>
+      {% endfor %}
+            
+{% endif %}
+      
+      
+<hr style="width: 700px;">
+<form action="" method="POST">
+      {% csrf_token %}
+
+      <label for="">Index Number</label> <br>
+      <input type="text" name="username" id=""> <br> <br>
+
+      <label for="">Password</label> <br>
+      <input type="password" name="password" id=""> <br> <br>
+
+      <input class="btn btn-primary" type="submit" value="Login"> <br> <br>
+      <a href="{% url 'base:signup' %}">New Here? Sign up</a>
+
+
+</form>
+<hr style="width: 700px;">
+
+{% endblock content %}
+      

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Sign up 
+{% endblock title %}
+      
+
+
+{% block content %}
+<h2>Sign up</h2>
+
+{% if messages %}
+      
+      {% for message in messages %}
+            <p>{{message}}</p>
+      {% endfor %}
+            
+{% endif %}
+
+<hr style="width: 500px;">
+
+<form action="" method="POST">
+      {% csrf_token %}
+
+      {{ form.as_p }} <br>
+
+      <input class="btn btn-primary" type="submit" value="Create Account">
+      <hr style="width: 600px;">
+
+      
+
+      <a href="{% url 'base:login' %}">Already a member? Login</a>
+
+</form>
+{% endblock content %}
+      

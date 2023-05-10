@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Examination Timetable</title>
+</head>
+<body>
+
+<center>
+    <h2>Kwame Nkrumah University of Science and Technology</h2>
+    <h2>Personal Examination Timetable</h2></center>
+{{ request.user }}
+    
+{% for table in timetable %}
+<div class="row g-0 text-center" style="width: 800px;">
+    <div class="col-sm-6 col-md-8">Name: {{lname}}, {{fname}}</div>
+    <div class="col-sm-6 col-md-8">Index Number: {{index_number}}</div>
+    <div class="col-sm-6 col-md-8">Course: {{ table.paper }}</div>
+    <div class="col-sm-6 col-md-8">Time: {{ table.paper.time | capfirst }} </div>
+    <div class="col-sm-6 col-md-8">Date: {{ table.paper.date | capfirst }}</div>
+    <div class="col-sm-6 col-md-8">Room: {{ table.paper.room | capfirst }}</div>
+    <div class="col-sm-6 col-md-8">College: {{ table.paper.college | capfirst }}</div>
+    <div class="col-sm-6 col-md-8">Building: {{ table.paper.building | capfirst }}</div>
+    <div class="col-sm-6 col-md-8">Floor: {{ table.paper.floor | capfirst }}</div>
+    <div class="col-6 col-md-4" style="margin-left: 450px; padding-top: -150px;">
+        <!-- <img class="qrcode" src="{% static '/images/code.png' %}" alt="" height="160px"; width="160px"> -->
+        <img class="qrcode2" src="{{table.imageURL_pdf}}" alt="" height="180px" width="180px">
+    </div> <br> <br> 
+    <hr style="width: 800px;"> 
+    {% endfor %}
+  </div>
+    
+</body>
+</html>
