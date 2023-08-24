@@ -13,6 +13,7 @@ PROGRAMMES = (
     ('Biomedical Engineering', 'Biomedical Engineering'), 
     ('Petrochemical Engineering', 'Petrochemical Engineering'), 
     ('Materials Engineering', 'Materials Engineering'), 
+    ('Chemical Engineering', 'Chemical Engineering'), 
 )
 
 class CustomUserManager(UserManager):
